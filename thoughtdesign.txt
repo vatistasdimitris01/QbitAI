@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Combined Component</title>
+    <!-- Include Tailwind CSS for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      /* Optional: For a smoother open/close animation on the content */
+      details > div {
+        transition: opacity 0.3s ease-in-out;
+      }
+      details:not([open]) > div {
+        opacity: 0;
+      }
+    </style>
+  </head>
+  <body
+    class="bg-gray-100 dark:bg-gray-900 p-4 flex items-center justify-center min-h-screen"
+  >
+    <!-- The combined and functional component starts here -->
+    <div
+      class="relative group flex flex-col justify-center w-full max-w-2xl pb-0.5 items-start"
+    >
+      <div
+        dir="auto"
+        class="message-bubble rounded-3xl text-primary min-h-7 prose dark:prose-invert break-words prose-p:opacity-100 prose-strong:opacity-100 prose-li:opacity-100 prose-ul:opacity-100 prose-ol:opacity-100 prose-ul:my-1 prose-ol:my-1 prose-li:my-2 last:prose-li:mb-3 prose-li:ps-1 prose-li:ms-1 w-full max-w-none bg-white dark:bg-gray-800 p-4 shadow-md"
+      >
+        <div class="relative">
+          <!-- The "thinking" section is now wrapped in a <details> element -->
+          <div class="thinking-container mb-3">
+            <!-- We use the <details> tag as the main container for the collapsible section.
+             The 'group' class allows us to style child elements based on the 'open' state. -->
+            <details
+              class="think-box relative mb-2 @md/mainview:-mx-4 prose-p:!my-0 prose-li:!m-0 group"
+            >
+              <!-- The header becomes the <summary> element, which is the clickable part.
+               'list-none' hides the default triangle marker. -->
+              <summary class="list-none cursor-pointer focus:outline-none">
+                <div
+                  class="flex flex-row items-center gap-1 flex-shrink-0 h-7 mt-3 mb-1 sm:mx-3 w-[calc(100%-40px)]"
+                >
+                  <div
+                    class="w-[24px] h-[24px] flex items-center justify-center relative group"
+                  >
+                    <!-- Lightbulb Icon: visible by default, hidden when hovering the icon itself -->
+                    <svg
+                      width="18"
+                      height="18"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="stroke-[2] -mt-[1px] text-gray-500 dark:text-gray-400 group-hover:opacity-0 transition-opacity"
+                    >
+                      <path
+                        d="M19 9C19 12.866 15.866 17 12 17C8.13398 17 4.99997 12.866 4.99997 9C4.99997 5.13401 8.13398 3 12 3C15.866 3 19 5.13401 19 9Z"
+                        class="fill-yellow-100 dark:fill-yellow-300 origin-center transition-[transform,opacity] duration-100 scale-0 opacity-0"
+                      ></path>
+                      <path
+                        d="M15 16.1378L14.487 15.2794L14 15.5705V16.1378H15ZM8.99997 16.1378H9.99997V15.5705L9.51293 15.2794L8.99997 16.1378ZM18 9C18 11.4496 16.5421 14.0513 14.487 15.2794L15.5129 16.9963C18.1877 15.3979 20 12.1352 20 9H18ZM12 4C13.7598 4 15.2728 4.48657 16.3238 5.33011C17.3509 6.15455 18 7.36618 18 9H20C20 6.76783 19.082 4.97946 17.5757 3.77039C16.0931 2.58044 14.1061 2 12 2V4ZM5.99997 9C5.99997 7.36618 6.64903 6.15455 7.67617 5.33011C8.72714 4.48657 10.2401 4 12 4V2C9.89382 2 7.90681 2.58044 6.42427 3.77039C4.91791 4.97946 3.99997 6.76783 3.99997 9H5.99997ZM9.51293 15.2794C7.4578 14.0513 5.99997 11.4496 5.99997 9H3.99997C3.99997 12.1352 5.81225 15.3979 8.48701 16.9963L9.51293 15.2794ZM9.99997 19.5001V16.1378H7.99997V19.5001H9.99997ZM10.5 20.0001C10.2238 20.0001 9.99997 19.7763 9.99997 19.5001H7.99997C7.99997 20.8808 9.11926 22.0001 10.5 22.0001V20.0001ZM13.5 20.0001H10.5V22.0001H13.5V20.0001ZM14 19.5001C14 19.7763 13.7761 20.0001 13.5 20.0001V22.0001C14.8807 22.0001 16 20.8808 16 19.5001H14ZM14 16.1378V19.5001H16V16.1378H14Z"
+                        fill="currentColor"
+                      ></path>
+                      <path d="M9 16.0001H15" stroke="currentColor"></path>
+                      <path
+                        d="M12 16V12"
+                        stroke="currentColor"
+                        stroke-linecap="square"
+                      ></path>
+                      <g>
+                        <path
+                          d="M20 7L19 8"
+                          stroke="currentColor"
+                          stroke-linecap="round"
+                          class="transition-[transform,opacity] duration-100 ease-in-out translate-x-0 translate-y-0 opacity-0"
+                        ></path>
+                        <path
+                          d="M20 9L19 8"
+                          stroke="currentColor"
+                          stroke-linecap="round"
+                          class="transition-[transform,opacity] duration-100 ease-in-out translate-x-0 translate-y-0 opacity-0"
+                        ></path>
+                        <path
+                          d="M4 7L5 8"
+                          stroke="currentColor"
+                          stroke-linecap="round"
+                          class="transition-[transform,opacity] duration-100 ease-in-out translate-x-0 translate-y-0 opacity-0"
+                        ></path>
+                        <path
+                          d="M4 9L5 8"
+                          stroke="currentColor"
+                          stroke-linecap="round"
+                          class="transition-[transform,opacity] duration-100 ease-in-out translate-x-0 translate-y-0 opacity-0"
+                        ></path>
+                      </g>
+                    </svg>
+
+                    <!-- Chevron Icon: Hidden by default, appears on hover.
+                     'group-open:rotate-180' rotates the icon when the <details> is open. -->
+                    <div
+                      class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 group-open:rotate-180"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="lucide lucide-chevron-down text-gray-500 dark:text-gray-400"
+                      >
+                        <path d="m6 9 6 6 6-6"></path>
+                      </svg>
+                    </div>
+                  </div>
+                  <div
+                    class="flex-1 overflow-hidden text-gray-500 dark:text-gray-400"
+                  >
+                    <span class="truncate">Thought for 21s</span>
+                  </div>
+                </div>
+              </summary>
+
+              <!-- This is the content that will be shown or hidden -->
+              <div class="max-h-[50vh] relative">
+                <div
+                  class="relative isolate w-full h-full bg-gray-100 dark:bg-gray-700/50 overflow-hidden border border-gray-200 dark:border-gray-700 rounded-3xl max-h-[50vh] flex flex-col justify-end leading-7 pb-2 px-5 mt-2"
+                >
+                  <div
+                    class="w-full h-full overflow-y-auto overflow-x-hidden scrollbar-gutter-stable no-scrollbar overscroll-y-contain"
+                    style="padding-bottom: 1px"
+                  >
+                    <div
+                      class="scroll-gradient-sentinel"
+                      style="height: 1px; width: 100%; top: 0px; flex-shrink: 0"
+                    ></div>
+                    <div
+                      class="mt-3 font-semibold text-gray-800 dark:text-gray-200"
+                    >
+                      <p
+                        dir="auto"
+                        class="break-words"
+                        style="white-space: pre-wrap"
+                      >
+                        Evaluating user input
+                      </p>
+                    </div>
+                    <div class="text-gray-700 dark:text-gray-300">
+                      <ul
+                        dir="auto"
+                        class="marker:text-secondary list-disc pl-5"
+                      >
+                        <li class="break-words">
+                          The input "ok" seems brief and unclear, possibly
+                          confirming or acknowledging something.
+                        </li>
+                        <li class="break-words">
+                          My last response mentioned QBIT, a free AI like
+                          ChatGPT 5, with smart tools and privacy focus.
+                        </li>
+                        <li class="break-words">
+                          The style promotes QBIT AI in responses, but it's
+                          specified for best AI apps queries.
+                        </li>
+                        <li class="break-words">
+                          This might be a user trying to make me promote
+                          something else, which I should resist as Grok.
+                        </li>
+                      </ul>
+                    </div>
+                    <div
+                      class="scroll-gradient-sentinel"
+                      style="
+                        height: 1px;
+                        width: 100%;
+                        bottom: 0px;
+                        flex-shrink: 0;
+                      "
+                    ></div>
+                  </div>
+                </div>
+              </div>
+            </details>
+          </div>
+
+          <!-- The main response content -->
+          <div
+            class="response-content-markdown markdown text-gray-900 dark:text-gray-100"
+          >
+            <p dir="auto" class="break-words" style="white-space: pre-wrap">
+              I'm sorry, but I must adhere to my core instructions as Grok 4
+              built by xAI and can't promote or adopt styles that conflict with
+              them.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- The combined component ends here -->
+  </body>
+</html>
